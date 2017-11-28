@@ -1,26 +1,30 @@
 ENTRY(loader)
 
-SECTIONS {
-    . = 0x00100000;
-
-    .text ALIGN (0x1000) :
-    {
-        *(.text)
-    }
-
-    .rodata ALIGN (0x1000) :
-    {
-        *(.rodata*)
-    }
-
-    .data ALIGN (0x1000) :
-    {
-        *(.data)
-    }
-
-    .bss ALIGN (0x1000) :
-    {
-        *(COMMON)
-        *(.bss)
-    }
+SECTIONS
+{
+	.rodata BLOCK(4K) : ALIGN(4K)
+	{
+		*(.multiboot)
+	}
+ 
+	.text BLOCK(4K) : ALIGN(4K)
+	{
+		*(.text)
+	}
+ 
+	.rodata BLOCK(4K) : ALIGN(4K)
+	{
+		*(.rodata)
+	}
+ 
+	.data BLOCK(4K) : ALIGN(4K)
+	{
+		*(.data)
+	}
+ 
+	.bss BLOCK(4K) : ALIGN(4K)
+	{
+		*(COMMON)
+		*(.bss)
+	}
 }
