@@ -45,3 +45,13 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+#Ignore Build
+iso/
+loader.o
+os.iso
+stage2_eltorito
+kernel.elf
+bochsrc.txt
+bochslog.txt
